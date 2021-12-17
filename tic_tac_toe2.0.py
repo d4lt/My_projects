@@ -2,10 +2,6 @@ import numpy as np
 import random as rnd
 import time
 
-def length(array):
-
-	return sum(len(i) for i in array)
-
 class Game:
 
 
