@@ -26,11 +26,11 @@ def generator():
 
 print("PASSWORD GENERATOR\n")
 
-length = int(input("how long do you want the password to be?" ))
+length = int(input("how long do you want the password to be? " ))
 
-alpha = input("Do you want letters in the password? (y/n):")
-numeric = input("Do you want numbers in the password? (y/n):")
-special = input("Do you want special characters in the password? (y/n):")
+alpha = input("Do you want letters in the password? (y/n): ")
+numeric = input("Do you want numbers in the password? (y/n): ")
+special = input("Do you want special characters in the password? (y/n): ")
 
 for _ in range(length):
 	generator()
