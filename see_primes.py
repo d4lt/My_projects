@@ -1,22 +1,25 @@
-import numpy as np
-
-rang = int(input("choose range of the prime-numbers that you wanna see: "))
+import sys
 
 def see_primes(n):
-	primes = []
 
+	for i in range(2, n + 1):
+		IS_PRIME = True
+		for j in range(1, i + 1):
+			if i%j == 0 and j != 1 and j != i:
+				IS_PRIME = False
+		if IS_PRIME:
+			yield i
+try:
+	n = int(input("choose the range of the primes: "))
+except ValueError:
+	print("the number should be a integer")
 
-	for i in range(2,n+1):
-		isPrime = True
-		for j in range(2, i):
+primes = see_primes(n)
 
-			if yield i%j == 0:
-				isPrime = False
+len_ = []
 
-		if isPrime:
-			primes.append(i)
+for obj in primes:
+	# print(obj)
+	len_.append(obj)
 
-	return primes
-
-
-print(see_primes(rang))
+print(f"{len(len_)} primes has been detected")
