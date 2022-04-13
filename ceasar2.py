@@ -1,7 +1,7 @@
 import random
 
-def trans_print(phrase,enc):
-    print(f'Before:\n{phrase}')
+def trans_print(message,enc):
+    print(f'Before:\n{message}')
     print()
     print('After:')
     for i in enc:
@@ -28,10 +28,10 @@ class Ceasar_2:
     def __init__(self,ciph) -> None:
         self.ciph = ciph
     
-    def encrypt(self,phrase):
+    def encrypt(self,message):
         alph_encry = []
 
-        for i in phrase.lower():
+        for i in message.lower():
 
             if not i.isalpha():
                 pass
@@ -44,11 +44,44 @@ class Ceasar_2:
             alph_encry.append(i)
         return alph_encry
 
-phrase = input('choose a sentence to encrypt: ')
+    def decrypt(self, message):
+        alph_decry = []
+
+        for i in message.lower():
+
+            if not i.isalpha():
+                pass
+            else:
+                i = chr(ord(i) + self.ciph)
+
+                if ord(i) > 122:
+                    i = chr(ord(i) - 26)
+
+            alph_decry.append(i)
+        return alph_decry
+
+
+
 
 while True:
+    bif = (input("Do you want to decrypt or encrypt a message?: ")).strip()
+    if bif == 'encrypt' or bif == 'decrypt':
+        break
+    else:
+        print("\n\nPlease type one of the options above\n\n")
 
-    cipher = int(input('select the cipher: '))
+if bif == 'encrypt':
+    message = input('choose a sentence to encrypt: ')
+elif bif == 'decrypt':
+    message = input('choose a sentence to decrypt: ')
+
+
+
+while True:
+    try:
+        cipher = int(input('select the cipher: '))
+    except ValueError:
+        print("type an int value pls.")
 
     if cipher >= 26 or cipher < 1:
         print('choose a number between 1 and 25 pls.')
@@ -56,12 +89,13 @@ while True:
         break
 
 
+
 my_cipher = Ceasar_2(cipher)
-my_encry = my_cipher.encrypt(phrase)
+if bif =='encrypt':
+    my_encry = my_cipher.encrypt(message)
+    trans_print(message,my_encry)
+elif bif == 'decrypt':
+    my_decry = my_cipher.decrypt(message)
+    trans_print(message,my_decry)
 
-# print(my_encry)
-# pri_nt(my_encry)
 
-trans_print(phrase,my_encry)
-
-print('hello world')

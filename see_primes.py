@@ -19,7 +19,7 @@ primes = see_primes(n)
 len_ = []
 
 for obj in primes:
-	# print(obj)
-	len_.append(obj)
+    print(obj)
+    len_.append(obj)
 
 print(f"{len(len_)} primes has been detected")
