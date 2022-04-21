@@ -1,7 +1,7 @@
 import pygame
 
 BLACK = (0, 0, 0)
-GREY = (128, 128, 128)
+GREY = (50, 50, 50)
 
 
 class Grid():
@@ -11,7 +11,7 @@ class Grid():
         self.width = width
         self.gap = gap
 
-    def make_grid(self, Cell_class):  
+    def make_grid(self, Cell_class):  # an 2D array to represents the cells in the grid
         
         grid = []
 
@@ -24,7 +24,7 @@ class Grid():
         return grid
 
 
-    def draw_grid(self):
+    def draw_grid(self):                # draw the actual and visible grid on the plane
         gap = self.width // self.rows
 
         #draw horizontal lines

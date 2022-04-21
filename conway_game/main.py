@@ -99,11 +99,6 @@ def main(win, width):
                         for cell in row:
                             cell.reset()
 
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_SPACE:
-                    started = False
-
-
 
     pygame.quit()
 

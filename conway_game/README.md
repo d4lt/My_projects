@@ -14,9 +14,18 @@ BRIEF TO THE GAME:
     3. EVERY DEAD CELL WITH EXACTLY 3 NEIGHBORS WILL LIVE
 
 
-besides its 3 simple rules, the game creates beatifull paterns  
+besides its 3 simple rules, the game creates beautiful patterns  
+
+TO USE:
+    -press LEFT MOUSE button to put cells
+    -RIGHT MOUSE to delete
+    -hold SPACE to go forward on the generations
+    -press C to clean the grid
 
 
 STRUCTURE THAT I USED:
 
-O.. create a class to make each cell an object;;;
+                                    GRID
+                  DRAW_GRID FUNC __|    |__MAKE_GRID FUNC
+          (the visual lines of              (actual 2D ARRAY representing 
+           the grid)                         row/columns with each cell represented as a class object)
