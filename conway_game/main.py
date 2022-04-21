@@ -27,9 +27,12 @@ def get_clicked_pos(pos, width, rows):
 
     return row, col
 
-def algorithm(grid, main_grid):
-    started = True
+def algorithm(grid, main_grid, started):
     while started:
+        for event in pygame.event.get():
+            if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_SPACE:
+                        started = False
 
         for row in grid:
             for cell in row:
@@ -57,6 +60,8 @@ def main(win, width):
 
     gap = width // ROWS
     main_grid = grid_.Grid(win, ROWS, width, gap)
+
+    global started
     started = False
     grid = main_grid.make_grid(Cell.Cell)
 
@@ -86,13 +91,17 @@ def main(win, width):
             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-
-                    algorithm(grid, main_grid)
+                    started = True
+                    algorithm(grid, main_grid, started)
                 
                 if event.key == pygame.K_c:
                     for row in grid:
                         for cell in row:
                             cell.reset()
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_SPACE:
+                    started = False
 
 
 
